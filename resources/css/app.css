@@ -1,0 +1,31 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./material-markdown-monokai.css";
+/* @import "./material-markdown-atom.css"; */
+.bgAnimation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    filter: saturate(1);
+    overflow: hidden;
+}
+.colorBox {
+    z-index: 2;
+
+    transform: rotate(4deg);
+    /* filter: brightness(1.1); */
+    transition: 2s ease;
+    margin: 2px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.colorBox:hover {
+    transition-duration: 0s;
+}
