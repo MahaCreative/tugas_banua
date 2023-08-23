@@ -17,25 +17,15 @@ function Header({ children, background = false }) {
         colorBoxElements.push(
             <div
                 key={i}
-                className="colorBox bg-slate-950 hover:bg-slate-950 shadow-sm shadow-slate-700/30"
+                className="colorBox bg-slate-950 hover:bg-slate-900 shadow-sm shadow-slate-700/30"
             />
         );
     }
     return (
-        <div className="relative   bg-slate-950 h-[40vh] sm:h-[90vh]  flex justify-center flex-col  transition-all duration-300 ease-linear">
+        <div className="relative   bg-slate-950 h-[60vh] sm:h-[90vh]  flex justify-center flex-col  transition-all duration-300 ease-linear">
             <div className=" bgAnimation ">{colorBoxElements}</div>
-            {/* {background && (
-                <div className="absolute top-0 left-0 w-full h-full">
-                    <img
-                        src="./Image/bg.jpg"
-                        alt=""
-                        className="w-full h-full object-center object-cover"
-                    />
-                </div>
-            )} */}
-            {/* <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-slate-950/80 to-slate-900/90"></div>{" "} */}
-            <div className="absolute left-0 bottom-0 backdrop:blur-sm flex justify-center items-center">
-                <div className="flex px-4 md:p-16 py-16 grid-cols-1 lg:grid-cols-2 gap-3 items-center justify-between transition-all duration-300 ease-linear">
+            <div className="absolute left-0 bottom-0 backdrop:blur-sm flex justify-center items-center h-[100%]">
+                <div className="relative h-full px-4 md:p-16 grid-cols-1 lg:grid-cols-2 gap-3  transition-all duration-300 ease-linear">
                     {children}
                 </div>
             </div>
@@ -55,10 +45,10 @@ function Title({ children, size = "7xl" }) {
     );
 }
 
-function Subtitle({ children, size = "text-md" }) {
+function Subtitle({ children, sizeTeaser = "xl" }) {
     return (
         <div className="w-full md:w-[100%]  transition-all duration-300 ease-linear">
-            <h3 className={`font-fira text-gray-500 font-light text-${size}`}>
+            <h3 className={'font-fira text-gray-500 font-light text-lg md:text-xl lg:text-3xl'}>
                 {children}
             </h3>
         </div>

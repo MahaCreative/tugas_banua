@@ -8,11 +8,11 @@ export default function Index() {
     return (
         <div className="relative">
             <Header background={true}>
-                <div className="relative w-[70vw]">
+                <div className="relative w-[90%] md:w-[70%] lg:w-[60vw] h-[100%] flex flex-col justify-center items-center">
                     <Header.Title size="8xl">
                         Screencast Praktis untuk
                     </Header.Title>
-                    <Header.Subtitle size="">
+                    <Header.Subtitle sizeTeaser="xl">
                         Reference site about Lorem Ipsum, giving information on
                         its origins, as well as a random Lipsum generator.
                     </Header.Subtitle>
