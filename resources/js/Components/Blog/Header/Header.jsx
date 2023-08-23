@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // const bgAnimation = document.getElementById("bgAnimation");
 
@@ -11,16 +11,43 @@ import React, { useState } from "react";
 // }
 function Header({ children, background = false }) {
     const [colorBoxes, setColorBoxes] = useState([]);
-    const numberOfColorBoxes = 400;
+    const numberOfColorBoxes = 46;
     const colorBoxElements = [];
     for (let i = 0; i < numberOfColorBoxes; i++) {
         colorBoxElements.push(
             <div
                 key={i}
-                className="colorBox bg-slate-950 hover:bg-slate-900 shadow-sm shadow-slate-700/30"
+                className="colorBox bg-slate-950 hover:bg-slate-900 shadow-sm shadow-slate-700/30 border border-slate-800/10"
             />
         );
     }
+    const [selectedElements, setSelectedElements] = useState([]);
+
+    useEffect(() => {
+        const colorBoxes = document.querySelectorAll(".colorBox");
+        const numberOfElementsToChange = 7;
+        const selectedIndices = [];
+
+        while (selectedIndices.length < numberOfElementsToChange) {
+            const randomIndex = Math.floor(Math.random() * colorBoxes.length);
+            if (!selectedIndices.includes(randomIndex)) {
+                selectedIndices.push(randomIndex);
+            }
+        }
+
+        const selectedElementsArray = Array.from(selectedIndices).map(
+            (index) => colorBoxes[index]
+        );
+        setSelectedElements(selectedElementsArray);
+    }, []);
+
+    useEffect(() => {
+        selectedElements.forEach((element) => {
+            element.classList.remove("bg-slate-950");
+            element.classList.add("bg-slate-900");
+        });
+    }, [selectedElements]);
+
     return (
         <div className="relative   bg-slate-950 h-[60vh] sm:h-[90vh]  flex justify-center flex-col  transition-all duration-300 ease-linear">
             <div className=" bgAnimation ">{colorBoxElements}</div>
@@ -48,7 +75,11 @@ function Title({ children, size = "7xl" }) {
 function Subtitle({ children, sizeTeaser = "xl" }) {
     return (
         <div className="w-full md:w-[100%]  transition-all duration-300 ease-linear">
-            <h3 className={'font-fira text-gray-500 font-light text-lg md:text-xl lg:text-3xl'}>
+            <h3
+                className={
+                    "font-fira text-gray-500 font-light text-lg md:text-xl lg:text-3xl"
+                }
+            >
                 {children}
             </h3>
         </div>

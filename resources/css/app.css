@@ -19,10 +19,10 @@
 .colorBox {
     z-index: 2;
 
-    transform: rotate(4deg);
+    transform: rotate(2deg);
     /* filter: brightness(1.1); */
     transition: 2s ease;
-    margin: 2px;
+    margin: 5px;
     border-radius: 10px 10px 10px 10px;
 }
 
