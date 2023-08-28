@@ -14,8 +14,8 @@ class CategoryBlogSeeder extends Seeder
     public function run(): void
     {
         collect([
-            ['name' => $name = 'Blog', 'slug' => str($name)->slug()],
-            ['name' => $name = 'Tutorial', 'slug' => str($name)->slug()]
+            ['name' => $name = 'Blog', 'slug' => str($name)->slug(), 'teaser' => 'Lorem ipsum dolor dolor quies ambrekerd'],
+            ['name' => $name = 'Tutorial', 'slug' => str($name)->slug(), 'teaser' => 'Lorem ipsum dolor dolor quies ambrekerd']
         ])->each(fn ($category) => CategoryBlog::create($category));
     }
 }

@@ -7,7 +7,7 @@ export default function NavLink({children, routeLink, active}) {
       <>
         <Link as='div' href={routeLink} className={clsx(
           active ? " shadow-gray-400/30" : "",
-          'font-fira font-extralight text-white p-2 rounded-md shadow-sm hover:text-gray-200 hover:bg-slate-400/30 transition-all duration-300 ease hover:cursor-pointer')}>{children}</Link>
+          'font-fira font-extralight text-xs md:text-md lg:textlg text-white p-2 rounded-md shadow-sm hover:text-gray-200 hover:bg-slate-400/30 transition-all duration-300 ease hover:cursor-pointer')}>{children}</Link>
       </>
   )
 }

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryBlog extends Model
 {
     use HasFactory;
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }

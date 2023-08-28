@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Blog\ArticleControler;
+use App\Http\Controllers\Blog\{ArticleControler, CategoryController};
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +19,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Blog/FrontUser/Home/Index');
-});
+})->name('home');
 
 Route::resource('article', ArticleControler::class);
+Route::resource('category', CategoryController::class);
