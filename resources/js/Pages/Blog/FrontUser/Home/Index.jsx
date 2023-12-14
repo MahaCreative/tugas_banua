@@ -4,17 +4,18 @@ import ContainerContent from "@/Components/Container/ContainerContent";
 import BlogLayout from "@/Layouts/Blog/BlogLayout";
 import React from "react";
 
-export default function Index() {
+export default function Index(props) {
+    const tugas = props.tugas
+    console.log(tugas);
     return (
         <div className="relative">
             <Header background={true}>
                 <div className="relative w-[90%] md:w-[70%] lg:w-[60vw] h-[100%] flex flex-col justify-center items-center">
                     <Header.Title size="8xl">
-                        Screencast Praktis untuk
+                        Banua Edu Center
                     </Header.Title>
                     <Header.Subtitle sizeTeaser="xl">
-                        Reference site about Lorem Ipsum, giving information on
-                        its origins, as well as a random Lipsum generator.
+                        Jadilah orang yang menguasai teknologi bukan orang yang di kuasai oleh teknologi
                     </Header.Subtitle>
                 </div>
                 {/* <div className="w-1/2">
@@ -23,30 +24,13 @@ export default function Index() {
             </Header>
 
             <div className="">
-                <ContainerContent title_content={"Series Terbaru"}>
-                    <ContainerContent.Kontent />
-                    <ContainerContent.Kontent />
-                    <ContainerContent.Kontent
-                        tags={
-                            <>
-                                <ContainerContent.Tag>ABG</ContainerContent.Tag>
-                                <ContainerContent.Tag>ABG</ContainerContent.Tag>
-                            </>
-                        }
-                    />
+                <ContainerContent title_content={"Tugas Coreldraw"}>
+                    {tugas.map((item, key) =>
+
+                        <ContainerContent.Kontent title={item.nama_tugas} image={'./storage/' + item.foto_tugas} routes={route('view-tugas', item.slug)} />)}
+
                 </ContainerContent>
-                <ContainerContent title_content={"Series Terbaru"}>
-                    <ContainerContent.Kontent />
-                    <ContainerContent.Kontent />
-                    <ContainerContent.Kontent
-                        tags={
-                            <>
-                                <ContainerContent.Tag>ABG</ContainerContent.Tag>
-                                <ContainerContent.Tag>ABG</ContainerContent.Tag>
-                            </>
-                        }
-                    />
-                </ContainerContent>
+
             </div>
         </div>
     );

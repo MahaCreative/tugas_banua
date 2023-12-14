@@ -3,7 +3,7 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css"; // Optional: add a blur effect while loading
 
-function ContainerContent({deskripsi, title_content, children }) {
+function ContainerContent({ deskripsi, title_content, children }) {
     return (
         <div className="bg-slate-950 px-4 md:px-8 lg:px-16 py-2 border-b border-white/10 border-dashed ">
             <div className="my-6">
@@ -21,13 +21,13 @@ function ContainerContent({deskripsi, title_content, children }) {
     );
 }
 
-function Kontent({ image, title, teaser, tags, routes, timeShow = true, countArticleShow=false }) {
+function Kontent({ image, title, teaser, tags, routes, timeShow = true, countArticleShow = false }) {
     return (
         <div className="">
             <div className="w-full rounded-lg overflow-hidden  flex flex-col">
                 <div className="">
                     <LazyLoadImage
-                        src="./Image/contoh.png"
+                        src={image}
                         alt=""
                         effect="blur"
                         className="lg:h-[34vh] w-full rounded-md object-cover object-center"
@@ -49,7 +49,7 @@ function Kontent({ image, title, teaser, tags, routes, timeShow = true, countArt
                     </div>
                     <div className="flex items-end">
                         <p className="text-slate-200/50 font-fira font-light text-[8pt] line-clamp-2 md:line-clamp-3 lg:line-clamp-4">
-                            {teaser} { " "}
+                            {teaser} {" "}
                         </p>
                         <Link href={routes} className="mx-3 text-blue-500 text-[8pt] hover:text-slate-200">
                             Selengkapnya

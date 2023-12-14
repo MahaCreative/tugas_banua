@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Blog\{ArticleControler, CategoryController};
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TugasController;
+use App\Models\TugasCoreldraw;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,8 +20,11 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Blog/FrontUser/Home/Index');
+    $tugas = TugasCoreldraw::all();
+    return Inertia::render('Blog/FrontUser/Home/Index', compact('tugas'));
 })->name('home');
 
-Route::resource('article', ArticleControler::class);
-Route::resource('category', CategoryController::class);
+Route::get('tugas', [TugasController::class, 'index']);
+Route::get('tugas/{slug}', [TugasController::class, 'view'])->name('view-tugas');
+Route::post('tugas/', [TugasController::class, 'store'])->name('view-store');
+
