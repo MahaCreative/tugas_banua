@@ -23,9 +23,11 @@ class TugasController extends Controller
             'nama_siswa' => 'required',
             'asal_sekolah' => 'required',
             'foto_tugas' => 'required|mimes:png,jpeg,jpg',
+            'foto_siswa' => 'required|mimes:png,jpeg,jpg',
         ]);
 
         $attr['foto_tugas'] = $request->file('foto_tugas')->store('img/tugas');
+        $attr['foto_siswa'] = $request->file('foto_siswa')->store('img/siswa');
         $attr['tugas_coreldraw_id'] = $request->id;
         $tugas = FormTugasSiswa::create($attr);
     }

@@ -11,6 +11,7 @@ export default function View(props) {
         nama_siswa: '',
         asal_sekolah: '',
         foto_tugas: '',
+        foto_siswa: '',
     })
     const changeHandler = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
@@ -45,6 +46,7 @@ export default function View(props) {
                             <div className='bg-slate-950 text-white rounded-md px-3 py-3 my-2.5'>
                                 <h3 className='font-bold text-xl'>{item.nama_siswa}</h3>
                                 <h3 className='font-light text-md'>{item.asal_sekolah}</h3>
+                                <img src={"/storage/" + item.foto_siswa} alt="" />
                                 <img src={"/storage/" + item.foto_tugas} alt="" />
                             </div>)}
                     </div>
@@ -58,6 +60,9 @@ export default function View(props) {
                                 <p>Asal Sekolah</p>
                                 <input onChange={changeHandler} name='asal_sekolah' type="text" className='w-full bg-slate-950 border border-gray-600 border-dashed focus:border-none focus:ring-0 rounded-md text-white' />
                                 {errors && <p className='text-[8pt] italic text-red-600'>{errors.asal_sekolah}</p>}
+                                <p>Foto Siswa</p>
+                                <input onChange={(e) => setData({ ...data, foto_tugas: e.target.files[0] })} name='foto_siswa' type="file" className='w-full bg-slate-950 border border-gray-600 border-dashed focus:border-none focus:ring-0 rounded-md text-white' />
+                                {errors && <p className='text-[8pt] italic text-red-600'>{errors.foto_tugas}</p>}
                                 <p>Foto Tugas</p>
                                 <input onChange={(e) => setData({ ...data, foto_tugas: e.target.files[0] })} name='foto_tugas' type="file" className='w-full bg-slate-950 border border-gray-600 border-dashed focus:border-none focus:ring-0 rounded-md text-white' />
                                 {errors && <p className='text-[8pt] italic text-red-600'>{errors.foto_tugas}</p>}
